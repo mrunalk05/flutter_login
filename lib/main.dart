@@ -19,7 +19,7 @@ TextEditingController passwordcontroler = TextEditingController();
 void login(String email, String password) async {
   try {
     http.Response response = await http.post(
-        Uri.parse(" https://reqres.in/api/login"),
+        Uri.parse("https://reqres.in/api/register"),
         body: {"email": email, "password": password});
 
     if (response.statusCode == 200) {
@@ -45,29 +45,33 @@ class _LoginState extends State<Login> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(50.0),
           ),
           TextFormField(
             controller: emailcontroler,
-            decoration: InputDecoration(hintText: "email"),
+            decoration: InputDecoration(hintText: "Email"),
           ),
           SizedBox(height: 40),
           TextFormField(
             controller: passwordcontroler,
             decoration: InputDecoration(hintText: "Password"),
           ),
-          SizedBox(height: 40),
+          SizedBox(height: 50),
           GestureDetector(
             onTap: () {
               login(emailcontroler.text.toString(),
                   passwordcontroler.text.toString());
             },
             child: Container(
-              height: 50,
-              decoration: BoxDecoration(
-                  color: Colors.greenAccent,
-                  borderRadius: BorderRadius.circular(20.0)),
-              child: Text('Login'),
+              // height: 50,
+              // decoration: BoxDecoration(
+              //     color: Colors.greenAccent,
+              //     borderRadius: BorderRadius.circular(10.0)),
+              // child: Text('Login'),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text('Sign In'),
+              ),
             ),
           )
         ],
